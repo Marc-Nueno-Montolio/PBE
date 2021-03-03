@@ -6,7 +6,8 @@ class Rfid
         readers = NFC::Reader.all
         if debug
             p "Available readers: #{readers}"
-        
+        end
+
         readers[0].poll(IsoDep::Tag, Mifare::Classic::Tag, Mifare::Ultralight::Tag) do |tag|
             begin
                 if tag
@@ -22,7 +23,8 @@ class Rfid
 
 
     if __FILE__ == $0
-        rf = Rfid....new
+        rf = Rfid
         uid = rf.read_uid
         puts uid
     end
+end
