@@ -1,13 +1,11 @@
-class Rfid...
-    ... ...
-    # return uid in hexa str # return uid in hexa str
-    def read_uid(self): def read_uid
-    ... ...
+class Rfid
+    # return uid in hexa str
+    def read_uid
+        #TODO: rad uid from sensor
     end
-    if __name__ == "__main__": end
-    rf = Rfid...()
-    uid = rf.read_uid() if __FILE__ == $0
-    print(uid) rf = Rfid....new
-    uid = rf.read_uid
-    puts uid
+
+    if __FILE__ == $0
+        rf = Rfid....new
+        uid = rf.read_uid
+        puts uid
     end
