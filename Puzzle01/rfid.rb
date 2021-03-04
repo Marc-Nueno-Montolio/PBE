@@ -16,7 +16,7 @@ class Rfid
                     tag.processed!
                 end
             rescue Exception => e
-                puts e.to_json
+                puts e
             end
         end
     end
