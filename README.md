@@ -3,7 +3,7 @@
 IOT Project for Projecte Bàsic d'Ingenyeria Subject
 More info at: http://soft0.upc.edu/~francesc/pbe/course_manager.pdf 
 
-Here you can find:
+In this repository you can find:
 ## Config
 Raspberry PI headless configuration files for working on the project.
     
