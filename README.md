@@ -4,11 +4,13 @@ IOT Project for Projecte Bàsic d'Ingenyeria Subject
 More info at: http://soft0.upc.edu/~francesc/pbe/course_manager.pdf 
 
 Here you can find:
-   -Config:
-    Raspberry PI configuration files for working on the project.
+   - Config:
+   
+      Raspberry PI configuration files for working on the project.
     
    -Puzzle01:
-    Contains ruby code for reading an UID card and showing it in console.
+   
+      Contains ruby code for reading an UID card and showing it in console.
     
    -Puzzle02:
      
