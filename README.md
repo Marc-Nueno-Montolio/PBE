@@ -1,4 +1,4 @@
-# ![image](https://user-images.githubusercontent.com/58827657/110253260-a1fea780-7f89-11eb-8aa6-c5678b4f8411.png)  PBE Telemàtica 2021-P
+# PBE Telemàtica 2021-P
 
 IOT Project for Projecte Bàsic d'Ingenyeria Subject
 More info at: http://soft0.upc.edu/~francesc/pbe/course_manager.pdf 
