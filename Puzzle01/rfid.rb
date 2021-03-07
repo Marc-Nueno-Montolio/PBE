@@ -1,8 +1,10 @@
 require 'ruby-nfc'
 class Rfid
+    # get all readers available with ruby-nfc gem
     @@readers = NFC::Reader.all
     @@debug = false
 
+    # returns UID in hex format
     def read_uid
         if @@debug
             puts "Available readers: #{@@readers}"
