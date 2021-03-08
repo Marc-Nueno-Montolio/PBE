@@ -33,23 +33,23 @@ def scroll_text(disp, str1, str2, i, time)
 end
 
 ip = Socket.ip_address_list[1].ip_address
+wireless = `iwgetid -r`
 
 while true
 	disp.font_size = 4
 	disp.println " PBE"
+	disp.font_size = 2
+	disp.println ""
+	disp.println "Marc Nueno"
 	disp.display!
 	sleep 1
 	disp.clear!
+	scroll_text(disp, "IP Address:", ip.to_s , 1, 0.3)
+	scroll_text(disp, "Wireless:", wireless , 1, 0.3)
+	scroll_text(disp, "Time:", Time.now.to_s , 1, 0.3)
 	
-
-	scroll_text(disp, "IP Address:", ip.to_s , 1, 0.2)
-	
-	scroll_text(disp, "Wireless:", "VodafoneE200" , 1, 0.2)
-
-	scroll_text(disp, "Time:", "19:05" , 1, 0.1)
-
-
 end
+
 
 
 
