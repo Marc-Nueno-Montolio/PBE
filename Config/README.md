@@ -124,4 +124,44 @@ Un cop realitzada la instalació, hem d'habilitar l'interfície VNC. Això es po
 
 ### 2.4 Utilitat per mostrar la xarxa i l'adreça en una pantalla LCD
 
-TODO....
+Ja disposava d'una pantalla OLED SSD1306 d'un projecte anterior, així que he pensat que seria una bona idea fer una petita utilitat que mostrés l'adreça IP de la Raspberry Pi i la xarxa a la que està connectada per tal de facilitar el treball.
+
+Per fer això he utilitzat la gema [SSD1306](https://github.com/zeiv/SSD1306-ruby).
+Aquesta gema necessita que instal·lem primer [rmagick](https://github.com/rmagick/rmagick). Per instalar-la he executat la següent comanda: `sudo apt-get install libmagickwand-dev` Un cop fet això he instalat la gema rmagick fent servir `gem install rmagick`
+
+Ara ja es pot instalar SSD1306-ruby fent: `gem install SSD1306`
+
+Ara el que s’ha de fer és configurar la raspberry per tal que el kernel carregui els mòduls necessaris per la comunicació I2C. 
+Això es pot fer amb la comanda raspi-config
+   
+Un cop habilitada la interfície i2c s’ha de trobar l’adreça del backpack del display. Això es pot fer fàcilment amb el programa i2c-tools. Primer, però s’ha d’instalar: `sudo apt-get install i2c-tools`
+
+Es pot veure que l’ID del LCD és el 03xC.
+
+Amb la pantalla OLED funcionanat he creat l'script [OLED_info.rb](https://github.com/Marc-Nueno-Montolio/PBE/blob/main/Config/OLED_info.rb) que mostra la informació a la pantalla.
+
+Només queda fer que l’script s’executi al iniciar la raspberry.En concret, volem executar aquesta comanda: ruby /home/pi/PBE/Config/OLED_info.rb &
+Per fer això s’ha de crear un arxiu de tipus systemd (servei).
+Es crea l’arxiu OLEDInfo.service amb sudo touch /lib/systemd/system/OLEDInfo.service
+El contingut de l’arxiu és el següent:
+
+````
+[Unit]
+Description=Lcd Network Info Service
+After=network.target
+[Service]
+Type=simple
+ExecStart=ruby /home/pi/PBE/Config/OLED_info.rb&
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+```
+Finalment s’habilita el servei amb la comanda `sudo systemctl enable OLEDInfo.service`
+
+````
+Created symlink /etc/systemd/system/multi-user.target.wants/OLEDInfo.service → /lib/systemd/system/OLEDInfo.service.
+````
+
+Un cop fet tot això ja es té el servei headless configurat i a més es pot saber a quina xarxa està connectada la Raspberry Pi a partir de la pantlla OLED, com es pot veure a la imatge següent:
