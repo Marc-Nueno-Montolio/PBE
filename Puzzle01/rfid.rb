@@ -4,13 +4,16 @@ class Rfid
     @@readers = NFC::Reader.all
     @@debug = false
 
+     def get_readers
+         return @@readers
+     end
     # returns UID in hex format
-    def read_uid
+    def read_uid(reader=0)
         if @@debug
             puts "Available readers: #{@@readers}"
         end
         
-        @@readers[0].poll(Mifare::Classic::Tag) do |tag|
+        @@readers[reader].poll(Mifare::Classic::Tag) do |tag|
             begin
                 uid = tag.to_s.split()[0].upcase
                 if @@debug
