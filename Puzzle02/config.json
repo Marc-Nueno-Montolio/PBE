@@ -2,7 +2,8 @@
   "reader": 0,
   "window-title": "PBE RFID READER APP",
   "welcome-message": "Please Log In with your University card",
-  "theme": "dark",
+  "dark-theme": "false",
+  "show-quit-buttons": "false",
   "debug": "true",
   "default-bg": "blue",
   "success-bg": "red"

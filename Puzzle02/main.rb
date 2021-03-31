@@ -36,7 +36,6 @@ win.show_all.signal_connect("delete_event") do
 end
 
 
-
 Gtk.main
 thr.join
 
